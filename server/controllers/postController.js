@@ -1,12 +1,7 @@
 const {success, error} = require("../utils/responseWrapper");
 const Post = require("../models/Post");
 const User = require("../models/User");
-const getAllPostController = async (req, res) => {
-    console.log(`User id: ${req._id}`);
-    const user_id = req._id;
-    console.log(`Post: ${await Post.find({user_id})}`);
-    return res.send(success(200, "All posts", await Post.find({user_id})));
-}
+
 const createPostController = async (req, res) => {
     try {
         const {caption} = req.body;
@@ -55,9 +50,56 @@ const LikeAndUnlikePostController = async (req, res) => {
         return res.send(error(500, "Something went wrong"));
     }
 }
+const updatePostController = async (req, res) => {
+    try {
+        const {postId} = req.body;
+        const currUserId = req._id;
+
+        const post = await Post.findById(postId);
+        if(!post){
+            return res.send(error(404, "Post not found"));
+        }
+        if(post.owner.toString() !== currUserId){
+            return res.send(error(403, "You are not authorized to update this post"));
+        }
+        const {caption} = req.body;
+        if(!caption){
+            return res.send(error(400, "Caption is required"));
+        }
+        post.caption = caption;
+        await post.save();
+        return res.send(success(200, "Post updated", post));
+    } catch (e) {
+        console.log(e);
+        return res.send(error(500, "Something went wrong"));
+    }
+}
+const deletePostController = async (req, res) => {
+    try{
+        const {postId} = req.body;
+        const currUserId = req._id;
+        const currUser = await User.findById(currUserId);
+        const post = await Post.findById(postId);
+        if(!post){
+            return res.send(error(404, "Post not found"));
+        }
+        if(post.owner.toString() !== currUserId){
+            return res.send(error(403, "You are not authorized to delete this post"));
+        }
+        const index = currUser.posts.indexOf(postId);
+        currUser.posts.splice(index, 1);
+        await currUser.save();
+        await post.remove();
+        return res.send(success(200, "Post deleted", post));
+    }catch (e) {
+        console.log(e);
+        return res.send(error(500, "Something went wrong"));
+    }
+}
 
 module.exports = {
-    getAllPostController,
     createPostController,
     LikeAndUnlikePostController,
+    updatePostController,
+    deletePostController
 };
