@@ -1,10 +1,11 @@
 const router = require('express').Router();
-const {getAllPostController, createPostController,LikeAndUnlikePostController} = require('../controllers/postController');
+const {deletePostController, createPostController,LikeAndUnlikePostController, updatePostController} = require('../controllers/postController');
 const requireUser = require('../middleware/requireUser');
 
 
-router.get('/all', requireUser, getAllPostController);
 router.post('/', requireUser, createPostController)
 router.post('/like', requireUser, LikeAndUnlikePostController)
+router.put('/', requireUser, updatePostController)
+router.delete('/', requireUser, deletePostController)
 
 module.exports = router;
