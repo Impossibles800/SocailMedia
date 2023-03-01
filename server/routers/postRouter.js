@@ -8,4 +8,5 @@ router.post('/like', requireUser, LikeAndUnlikePostController)
 router.put('/', requireUser, updatePostController)
 router.delete('/', requireUser, deletePostController)
 
+
 module.exports = router;
