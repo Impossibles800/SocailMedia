@@ -49,6 +49,7 @@ const getPostsOfFollowingsController = async (req, res) => {
                 '$in': currUser.followings
             }
         }).populate('likes');
+        console.log(`Posts of followings: ${posts}`);
         return res.send(success(200, "Posts of followings", posts));
     } catch (e) {
         console.log(e);

@@ -1,0 +1,18 @@
+.Feed{
+  height: 500vh;
+  .container{
+    display: flex;
+    overflow: hidden;
+  }
+  .left-part{
+    flex: 2;
+    //background: red;
+    overflow: auto;
+    height: 400px;
+  }
+  .right-part{
+    flex: 1;
+    //background: blue;
+    height: 400px;
+  }
+}
