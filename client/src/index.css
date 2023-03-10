@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --border-color: #ddd;
+    --accent-color: #1bb0ff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #212121;
+}
+
+.hover-link {
+    cursor: pointer;
+}
+
+.container {
+    max-width: 960px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 10px 40px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.btn-primary:hover {
+    background-color: #066898;
+}
+.btn-primary:active {
+    background-color: #62bdec;
+}
+
+.btn-secondary {
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 10px 40px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+.btn-delete{
+    background-color: #b70021;
+    color: #fff;
+    padding: 10px 40px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 40px;
+}

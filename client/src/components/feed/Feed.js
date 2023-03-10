@@ -19,9 +19,13 @@ function Feed(){
                             You are Following
                         </h3>
                         <Follower/>
+                        <Follower/>
+                        <Follower/>
                     </div>
                     <div className="mt-12 mx-10">
                         <h3 className="mb-4">Suggested For You</h3>
+                        <Follower/>
+                        <Follower/>
                         <Follower/>
                     </div>
                 </div>

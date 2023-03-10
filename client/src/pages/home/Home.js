@@ -21,7 +21,10 @@ function Home() {
 
     return <>
         <Navbar/>
-        <Outlet/>
+        <div className="mt-40">
+            <Outlet/>
+        </div>
+
     </>;
 
 }

@@ -1,18 +1,21 @@
 .Feed{
-  height: 500vh;
+  height: calc(900vh - 60px);
+  margin-top: 60px;
   .container{
     display: flex;
+    gap: 20px;
     overflow: hidden;
   }
   .left-part{
-    flex: 2;
+    flex: 5;
     //background: red;
-    overflow: auto;
-    height: 400px;
+    overflow-y: auto;
+    height: 900px;
+
   }
   .right-part{
-    flex: 1;
-    //background: blue;
+    flex: 2;
+    margin-top: 20px;
     height: 400px;
   }
 }

@@ -1,0 +1,31 @@
+
+.UpdateProfile .left-part {
+    @apply flex-1 text-center;
+}
+.UpdateProfile .left-part .user-img {
+    @apply flex items-center justify-center;
+}
+.UpdateProfile .left-part .user-img img {
+    @apply w-full h-full object-cover rounded-[50%];
+}
+.UpdateProfile .left-part .inputImg {
+    @apply hidden;
+}
+.UpdateProfile .right-part {
+    @apply flex-[3];
+}
+.UpdateProfile .right-part form {
+    @apply border border-[color:var(--border-color)] rounded p-5 border-solid;
+}
+.UpdateProfile .right-part input {
+    @apply w-full block rounded border border-[color:var(--border-color)] mt-4 px-4 py-2 border-solid;
+}
+.UpdateProfile .right-part .btn-primary {
+    @apply w-fit;
+}
+.UpdateProfile .right-part .delete-account {
+    @apply bg-[red] mt-4;
+}
+.left{
+    @apply rounded-[50%];
+}

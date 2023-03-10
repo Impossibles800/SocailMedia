@@ -1,4 +1,12 @@
 .Navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 60px;
+  border-bottom: 1px solid var(--border-color);
+  background-color: black;
+  border-bottom: 1px solid gray;
+
   .container {
     max-width: 960px;
     display: flex;
@@ -7,7 +15,17 @@
     margin-inline: auto;
   }
 
-  height: 60px;
-  border-bottom: 1px solid gray;
+  .right-side {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .logout{
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+
+  }
 
 }
