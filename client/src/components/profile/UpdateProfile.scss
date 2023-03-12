@@ -1,31 +1,25 @@
+.UpdateProfile{
+    .input-user-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-.UpdateProfile .left-part {
-    @apply flex-1 text-center;
-}
-.UpdateProfile .left-part .user-img {
-    @apply flex items-center justify-center;
-}
-.UpdateProfile .left-part .user-img img {
-    @apply w-full h-full object-cover rounded-[50%];
-}
-.UpdateProfile .left-part .inputImg {
-    @apply hidden;
-}
-.UpdateProfile .right-part {
-    @apply flex-[3];
-}
-.UpdateProfile .right-part form {
-    @apply border border-[color:var(--border-color)] rounded p-5 border-solid;
-}
-.UpdateProfile .right-part input {
-    @apply w-full block rounded border border-[color:var(--border-color)] mt-4 px-4 py-2 border-solid;
-}
-.UpdateProfile .right-part .btn-primary {
-    @apply w-fit;
-}
-.UpdateProfile .right-part .delete-account {
-    @apply bg-[red] mt-4;
-}
-.left{
-    @apply rounded-[50%];
+        .lableImg{
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            cursor: pointer;
+
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+        .InputImg{
+            display: none;
+        }
+    }
 }

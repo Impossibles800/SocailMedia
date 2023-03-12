@@ -1,3 +1,4 @@
+
 const User = require('../models/User');
 const Post = require('../models/Post');
 const {error, success} = require('../utils/responseWrapper');
@@ -133,11 +134,22 @@ const deleteMyProfile = async (req, res) => {
         console.log(e)
     }
 }
+const getMyInfo = async (req, res) => {
+    try {
+        const user = await User.findById(req._id);
+        return res.send(success(200, "", {user}));
+    }
+    catch (e) {
+        console.log(e)
+        return res.send(error(500, e));
+    }
+}
 
 module.exports = {
     followUnfollowUserController,
     getPostsOfFollowingsController,
     getMyPostsController,
     getUserPost,
-    deleteMyProfile
+    deleteMyProfile,
+    getMyInfo
 };

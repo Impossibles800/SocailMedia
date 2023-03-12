@@ -6,10 +6,26 @@ import RequireUser from "./components/RequireUser";
 import Feed from "./components/feed/Feed";
 import Profile from "./components/profile/Profile";
 import UpdateProfile from "./components/profile/UpdateProfile";
+import LoadingBar from "react-top-loading-bar";
+import React, {useEffect, useRef} from "react";
+import {useSelector} from "react-redux";
 
 function App() {
+    const  isLoading = useSelector(state => state.appConfigReducer.isLoading);
+    const loadingRef = useRef(null);
+
+    useEffect(() => {
+        if(isLoading){
+            loadingRef.current?.continuousStart();
+        }else{
+            loadingRef.current?.complete();
+        }
+    }, [isLoading]);
+
     return (
         <div className="App">
+            <LoadingBar height={6} color='#5f9fff' ref={loadingRef}/>
+
             <Routes>
                 <Route element={<RequireUser/>}>
                     <Route path="/" element={<Home/>}>

@@ -6,7 +6,7 @@ function RequireUser(){
     const user = getItem(KEY_ACCESS_TOKEN);
 
     return (
-      user ? <Outlet /> : <Navigate to={'/signup'}/>
+      user ? <Outlet /> : <Navigate to={'/login'}/>
     )
 }
 export default RequireUser;
